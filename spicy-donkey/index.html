@@ -24,14 +24,19 @@
     <button onclick="generateName()">Generate</button>
     <h2 id="result"></h2>
 
-    <!-- Include the package from a CDN -->
     <script src="https://cdn.jsdelivr.net/npm/spicy-donkey@latest/dist/bundle.js"></script>
     <script>
-        function generateName() {
+        async function generateName() {
             const adjectiveType = document.getElementById('adjectiveType').value;
             const nounType = document.getElementById('nounType').value;
-            const result = SpicyDonkey.generateRandomCombination(adjectiveType, nounType);
-            document.getElementById('result').innerText = result;
+
+            try {
+                const result = await window.spicyDonkey.generateRandomCombination(adjectiveType, nounType);
+                document.getElementById('result').innerText = result;
+            } catch (error) {
+                console.error('Error generating name:', error);
+                document.getElementById('result').innerText = 'Error generating name';
+            }
         }
     </script>
 </body>
