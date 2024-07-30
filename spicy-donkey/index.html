@@ -31,7 +31,7 @@
             const nounType = document.getElementById('nounType').value;
 
             try {
-                const result = await window.spicyDonkey.generateRandomCombination(adjectiveType, nounType);
+                const result = await SpicyDonkey.generateRandomCombination(adjectiveType, nounType);
                 document.getElementById('result').innerText = result;
             } catch (error) {
                 console.error('Error generating name:', error);
