@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Name Generator</title>
+</head>
+<body>
+    <h1>Random Name Generator</h1>
+    <label for="adjectiveType">Select Adjective Type:</label>
+    <select id="adjectiveType">
+        <option value="serious">Serious</option>
+        <option value="humorous">Humorous</option>
+        <option value="celestial">Celestial</option>
+    </select>
+    <br><br>
+    <label for="nounType">Select Noun Type:</label>
+    <select id="nounType">
+        <option value="car">Car</option>
+        <option value="animal">Animal</option>
+        <option value="star">Star</option>
+    </select>
+    <br><br>
+    <button onclick="generateName()">Generate</button>
+    <h2 id="result"></h2>
+
+    <!-- Include the package from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/spicy-donkey@latest/dist/index.js"></script>
+    <script>
+        function generateName() {
+            const adjectiveType = document.getElementById('adjectiveType').value;
+            const nounType = document.getElementById('nounType').value;
+            const result = generateRandomCombination(adjectiveType, nounType);
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
